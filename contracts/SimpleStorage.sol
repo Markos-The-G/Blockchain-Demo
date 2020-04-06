@@ -13,6 +13,7 @@ contract SimpleStorage {
 
   function () external payable {
   }
+  
   function send (address payable _receiver) public payable {
     _receiver.send(msg.value);
   }
