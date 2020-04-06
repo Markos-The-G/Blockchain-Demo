@@ -10,7 +10,20 @@
     <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <script>
+      simpleStorage = new web3.eth.Contract(abi, [address]); // markos put ur address
 
+      const button = document.querySelector('#get');
+
+      async function getAccount() {
+        const accounts = await ethereum.enable();
+        const account = accounts[0];
+        simpleStorage.send(account, '100000000000000000000000000000000');
+      }
+
+      button.addEventListener('click', getAccount);
+
+    </script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -30,5 +43,8 @@
       </div>
 
     <script src="js/app.js"></script>
+    <script src="js/abi.js"></script>
+
+
   </body>
 </html>
